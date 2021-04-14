@@ -106,3 +106,17 @@ function filter90AndAbove(array) {
     console.log(aOrHigher)
 }
 filter90AndAbove(submissions);
+
+// *** EXTENDED CHALLENGES ***
+function createRange(start, end) {
+    let count = 0;
+      for (i = start; i <= end; i++) {
+          count = i;
+          console.log(count)
+      } 
+  }
+  createRange(4, 10);
+
+  function countElements(array) {
+      
+  }
