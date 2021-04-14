@@ -38,6 +38,7 @@ function addSubmission(array, newName, newScore, newDate) {
     });
 }
 addSubmission(submissions, "Frank", 54, "2020-05-21");
+addSubmission(submissions, "Tom", 70, "2020-06-21");
 console.log(submissions);
 
 // 3. Declare a function named deleteSubmissionByIndex:
@@ -49,31 +50,33 @@ console.log(submissions)
 
 // 4. Declare a function named deleteSubmissionByName
 function deleteSubmissionByName(array, name) {
-    let matchingName = array.findIndex(array => array.name === name)
-    array.splice(matchingName, 1);
+    let matchingNameIndex = array.findIndex(submission => submission.name === name)
+    array.splice(matchingNameIndex, 1);
 };
 deleteSubmissionByName(submissions, "Jane");
+console.log(submissions)
 
 
 // 5. Declare a function named editSubmission 
 function editSubmission(array, index, score) {
-    let submission = array[index]
-    submission.score = score
+    let submission = array[index];
+    submission.score = score;
     submission.passed = score >= 60 ? true : false;
 }
-//editSubmission(submissions, 0, 55);
+editSubmission(submissions, 3, 55);
+editSubmission(submissions, 0, 55);
 console.log(submissions);
 
 // 6. Declare a function named findSubmissionByName
 function findSubmissionByName(array, name) {
-    console.log(array.find(x => x.name === name));
+    console.log(array.find(submission => submission.name === name));
 }
-findSubmissionByName(submissions, "Jill");
-console.log(submissions);
+findSubmissionByName(submissions, "Jack");
+findSubmissionByName(submissions, "Frank");
 
 // 7. Declare a function named findLowestScore
 function findLowestScore(array) {
-    let lowestScore = Infinity
+    let lowestScore = array[0];
     array.forEach(x => {
         if (x.score < lowestScore)
         lowestScore = x.score
@@ -86,26 +89,26 @@ findLowestScore(submissions);
 function findAverageScore(array) {
     let total = 0;
     let average;
-    for (let num of array) {
-      total += num.score
-    } average = total / array.length
-    console.log(average);
+    for (let submission of array) {
+      total += submission.score;
+    } 
+    average = total / array.length
+    return average;
   }
-findAverageScore(submissions);
+  console.log(findAverageScore(submissions));
 
 // 9. Declare a function named filterPassing
 function filterPassing(array) {
-    let passing = array.filter(array => array.score >= 60);
-    console.log(passing)
+    return array.filter(array => array.score >= 60);
  }
- filterPassing(submissions);
+ console.log(filterPassing(submissions));
 
 // 10. Declare a function named filter90AndAbove
 function filter90AndAbove(array) {
-    let aOrHigher = array.filter(array => array.score >= 90);
+    return array.filter(x => x.score >= 90);
     console.log(aOrHigher)
 }
-filter90AndAbove(submissions);
+console.log(filter90AndAbove(submissions));
 
 // *** EXTENDED CHALLENGES ***
 function createRange(start, end) {
@@ -117,6 +120,27 @@ function createRange(start, end) {
   }
   createRange(4, 10);
 
-  function countElements(array) {
-      
+  // Second Extended challenge
+  let arrayEx = ['a', 'b', 'a', 'c', 'a', 'b']
+function countElements(array) {
+  let object = {};
+  let aCount = 0;
+  let bCount = 0;
+  let cCount = 0;
+  for (let num of array) {
+    if (num === 'a') {
+      aCount += 1;
+      object.a = aCount;
+    } else if (num === 'b') {
+      bCount += 1;
+      object.b = bCount
+    } else if (num === 'c') {
+      cCount += 1;
+      object.c = cCount;
+    }
+  } return object;
   }
+
+console.log(countElements(arrayEx));
+
+
