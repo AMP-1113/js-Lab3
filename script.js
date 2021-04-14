@@ -38,21 +38,21 @@ function addSubmission(array, newName, newScore, newDate) {
     });
 }
 addSubmission(submissions, "Frank", 54, "2020-05-21");
-//console.log(submissions);
+console.log(submissions);
 
 // 3. Declare a function named deleteSubmissionByIndex:
 function deleteSubmissionByIndex(array, index) {
     array.splice(index, 1);
 };
-//deleteSubmissionByIndex(submissions, 1);
-//console.log(submissions)
+deleteSubmissionByIndex(submissions, 1);
+console.log(submissions)
 
 // 4. Declare a function named deleteSubmissionByName
 function deleteSubmissionByName(array, name) {
     let matchingName = array.findIndex(array => array.name === name)
     array.splice(matchingName, 1);
 };
-//deleteSubmissionByName(submissions, "Jane");
+deleteSubmissionByName(submissions, "Jane");
 
 
 // 5. Declare a function named editSubmission 
@@ -62,13 +62,14 @@ function editSubmission(array, index, score) {
     submission.passed = score >= 60 ? true : false;
 }
 //editSubmission(submissions, 0, 55);
-//console.log(submissions);
+console.log(submissions);
 
 // 6. Declare a function named findSubmissionByName
 function findSubmissionByName(array, name) {
     console.log(array.find(x => x.name === name));
 }
-//findSubmissionByName(submissions, "Jill");
+findSubmissionByName(submissions, "Jill");
+console.log(submissions);
 
 // 7. Declare a function named findLowestScore
 function findLowestScore(array) {
@@ -79,7 +80,7 @@ function findLowestScore(array) {
     });
     console.log(lowestScore);
 }
-//findLowestScore(submissions);
+findLowestScore(submissions);
 
 // 8. Declare a function named findAverageScore
 function findAverageScore(array) {
@@ -90,7 +91,7 @@ function findAverageScore(array) {
     } average = total / array.length
     console.log(average);
   }
-//findAverageScore(submissions);
+findAverageScore(submissions);
 
 // 9. Declare a function named filterPassing
 function filterPassing(array) {
