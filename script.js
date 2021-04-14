@@ -68,12 +68,18 @@ function editSubmission(array, index, score) {
 function findSubmissionByName(array, name) {
     console.log(array.find(x => x.name === name));
 }
-findSubmissionByName(submissions, "Frank");
+//findSubmissionByName(submissions, "Jill");
 
-// 7. Declare a function named findLowestScore NOT WORKING
+// 7. Declare a function named findLowestScore
 function findLowestScore(array) {
-    array.forEach()
+    let lowestScore = Infinity
+    array.forEach(x => {
+        if (x.score < lowestScore)
+        lowestScore = x.score
+    });
+    console.log(lowestScore);
 }
+//findLowestScore(submissions);
 
 // 8. Declare a function named findAverageScore
 function findAverageScore(array) {
@@ -84,14 +90,18 @@ function findAverageScore(array) {
     } average = total / array.length
     console.log(average);
   }
-  findAverageScore(submissions);
+//findAverageScore(submissions);
 
 // 9. Declare a function named filterPassing
 function filterPassing(array) {
-
-}
+    let passing = array.filter(array => array.score >= 60);
+    console.log(passing)
+ }
+ filterPassing(submissions);
 
 // 10. Declare a function named filter90AndAbove
 function filter90AndAbove(array) {
-
+    let aOrHigher = array.filter(array => array.score >= 90);
+    console.log(aOrHigher)
 }
+filter90AndAbove(submissions);
